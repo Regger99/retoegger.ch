@@ -58,7 +58,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+body{overflow-x:clip;font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
 img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
@@ -106,15 +106,15 @@ header.solid{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),u
 .stat span{font-size:15px;opacity:.85}
 
 /* News */
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;cursor:pointer;text-align:left;font:inherit;color:inherit;position:relative;transition:border-color .25s}
-.card .ph{position:relative;overflow:hidden;aspect-ratio:4/3}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;width:100%;min-width:0;max-width:100%;padding:0;margin:0;-webkit-appearance:none;appearance:none;cursor:pointer;text-align:left;font:inherit;color:inherit;position:relative;transition:border-color .25s}
+.card .ph{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;width:100%}
 .card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .card:hover,.card:focus-visible{border-color:var(--green)}
 .card:hover img,.card:focus-visible img{transform:scale(1.045)}
 .card:hover h3,.card:focus-visible h3{background-size:100% 2px}
 .card:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
-.card-body{padding:22px 22px 26px}
+.card-body{display:block;padding:22px 22px 26px;min-width:0;overflow-wrap:break-word}
 .date{font-size:14px;font-weight:600;color:var(--orange);margin-bottom:6px}
 .card h3{font-size:22px;margin-bottom:8px;display:inline;background:linear-gradient(var(--orange),var(--orange)) 0 100%/0 2px no-repeat;transition:background-size .35s ease}
 .card p{font-size:15px;color:var(--muted);margin-top:10px}
@@ -349,7 +349,7 @@ footer summary{cursor:pointer;color:#fff}
   .burger{display:block}
   header{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),url(assets/hoehenlinien.svg) center 35%/1600px auto,var(--green)}
   .stats .wrap{grid-template-columns:repeat(2,1fr)}
-  .news-grid,.pillars,.cols,.contact .wrap{grid-template-columns:1fr}
+  .news-grid,.pillars,.cols,.contact .wrap{grid-template-columns:minmax(0,1fr)}
   .profile{grid-template-columns:1fr}
   .profile img{max-width:320px}
   .way{grid-template-columns:1fr;gap:28px}
@@ -712,7 +712,7 @@ const onScroll=()=>hdr.classList.toggle("solid",window.scrollY>40);
 window.addEventListener("scroll",onScroll); onScroll();
 /* iOS: Höhe des Titelbilds nach dem Drehen des Geräts neu setzen */
 const setHero=()=>document.documentElement.style.setProperty("--hero-h",window.innerHeight+"px");
-setHero(); window.addEventListener("orientationchange",()=>setTimeout(setHero,350));
+setHero(); window.addEventListener("orientationchange",()=>setTimeout(()=>{ setHero(); if(NEWS.length) renderNews(newsOpen); },350));
 let lastW=window.innerWidth; window.addEventListener("resize",()=>{ if(window.innerWidth!==lastW){ lastW=window.innerWidth; setHero(); } });
 burger.onclick=()=>menu.classList.toggle("open");
 menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>menu.classList.remove("open")));
