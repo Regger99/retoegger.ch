@@ -57,7 +57,7 @@
   --max:1160px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
 img{display:block;max-width:100%}
 a{color:inherit}
@@ -84,7 +84,7 @@ header.solid{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),u
 .burger svg{width:28px;height:28px}
 
 /* Hero */
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:0 0 88px;overflow:hidden}
+.hero{position:relative;min-height:100vh;min-height:100svh;min-height:var(--hero-h,100svh);display:flex;align-items:flex-end;color:#fff;padding:0 0 88px;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 10%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,38,29,.82) 0%,rgba(18,38,29,.45) 45%,rgba(18,38,29,0) 75%),linear-gradient(0deg,rgba(18,38,29,.7) 0%,rgba(18,38,29,0) 45%)}
 .hero .wrap{position:relative;z-index:2;width:100%}
@@ -229,6 +229,7 @@ footer summary{cursor:pointer;color:#fff}
 /* Mein Weg */
 .way{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start;margin-top:8px}
 .way-photo{position:sticky;top:96px}
+.way-title{font-size:34px;margin-bottom:18px}
 .way-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 15%}
 .way-photo p{font-size:14px;color:var(--muted);margin-top:12px}
 .tl{list-style:none;position:relative}
@@ -309,7 +310,9 @@ footer summary{cursor:pointer;color:#fff}
 .legend .k-int::before{background:var(--orange)}
 .legend .k-sel::before{background:var(--orange-soft)}
 .legend .k-nat::before{background:var(--green)}
-.cal{list-style:none}
+.cal{list-style:none;position:relative;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent;border-bottom:1px solid var(--line)}
+.cal.fade{-webkit-mask-image:linear-gradient(#000 calc(100% - 36px),transparent);mask-image:linear-gradient(#000 calc(100% - 36px),transparent)}
+.cal-hint{font-size:14px;color:var(--muted);margin-top:10px}
 .cal li{display:grid;grid-template-columns:180px 1fr auto;gap:20px;align-items:center;border-top:1px solid var(--line);padding:16px 0 16px 16px;position:relative}
 .cal li{transition:background .2s}
 .cal li::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:2px;transition:width .2s}
@@ -342,6 +345,7 @@ footer summary{cursor:pointer;color:#fff}
   .nav ul.open{display:flex}
   .nav ul li{width:100%}
   .nav ul a{display:block;padding:12px 24px}
+  .nav ul .lang{display:inline-block;margin:12px 24px 4px}
   .burger{display:block}
   header{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),url(assets/hoehenlinien.svg) center 35%/1600px auto,var(--green)}
   .stats .wrap{grid-template-columns:repeat(2,1fr)}
@@ -440,9 +444,9 @@ footer summary{cursor:pointer;color:#fff}
       <div class="pillar"><h3>Ausdauer</h3><p>Rund 150 Tage im Jahr bin ich für gezielte Trainings und Wettkämpfe in ganz Europa und darüber hinaus unterwegs. Nach den schweren Verletzungen 2022 und 2025 habe ich mich jedes Mal in den Weltcup zurückgelaufen.</p></div>
     </div>
 
-    <h3 style="font-size:34px">Mein Weg</h3>
     <div class="way">
       <div class="way-photo">
+        <h3 class="way-title">Mein Weg</h3>
         <img src="assets/portrait.jpg" alt="Porträt Reto Egger im Dress des Schweizer Nationalkaders">
         <p>OLK Rafzerfeld-Bülach<br>OK Linné Uppsala (SWE)</p>
       </div>
@@ -488,7 +492,7 @@ footer summary{cursor:pointer;color:#fff}
     </div>
 
     <div class="years">
-      <h3>Resultate nach Jahr</h3>
+      <h3 id="resultate">Resultate nach Jahr</h3>
       <div class="tabs" role="tablist" id="yearTabs"></div>
       <div class="year-panel" id="yearPanel"></div>
     </div>
@@ -516,7 +520,8 @@ footer summary{cursor:pointer;color:#fff}
       </div>
     </div>
     <div class="legend"><span class="k-int">WM, EM, Weltcup, CISM</span><span class="k-sel">Ziel- und Selektionswettkämpfe</span><span class="k-nat">Schweizer Meisterschaften</span></div>
-    <ul class="cal" id="cal"></ul>
+    <ul class="cal" id="cal" tabindex="0" aria-label="Wettkampfkalender 2027"></ul>
+    <p class="cal-hint" id="calHint" hidden>In der Liste scrollen für alle Wettkämpfe der Saison.</p>
   </div>
 </section>
 
@@ -633,7 +638,11 @@ document.querySelectorAll(".heat").forEach(h=>h.addEventListener("click",()=>{ l
 const closeLb=()=>{ lb.classList.remove("open"); document.body.style.overflow=""; };
 lb.addEventListener("click",closeLb);
 document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeNews(); closeLb(); } });
-allNews.addEventListener("click",e=>{ e.preventDefault(); renderNews(true); allNews.style.display="none"; });
+/* Zurück zum Abschnitt, falls er nach dem Zuklappen oberhalb des Bildschirms liegt */
+const backTo=el=>{ if(el.getBoundingClientRect().top<70) el.scrollIntoView({block:"start"}); };
+let newsOpen=false;
+allNews.addEventListener("click",e=>{ e.preventDefault(); newsOpen=!newsOpen; renderNews(newsOpen);
+  allNews.textContent=newsOpen?"Weniger anzeigen":"Alle News"; if(!newsOpen) backTo(document.getElementById("news")); });
 
 function renderEvents(){
   const today=new Date().toISOString().slice(0,10);
@@ -644,7 +653,22 @@ function renderEvents(){
     const st=past?"Vorbei":isNext?"Als Nächstes":e.woc?"Saisonhöhepunkt":"";
     return `<li class="${cls}"><div class="d">${esc(e.d)}</div><div class="n">${esc(e.name)}${e.info?`<small>${esc(e.info)}</small>`:""}</div>${st?`<span class="st">${st}</span>`:"<span></span>"}</li>`;
   }).join("");
+  sizeCal(true);
 }
+/* Kalender: fünf Wettkämpfe sichtbar, Liste scrollt in sich, beginnt beim nächsten Wettkampf */
+function sizeCal(jump){
+  const cal=document.getElementById("cal"), items=[...cal.children], SHOW=5;
+  if(items.length<=SHOW){ cal.style.maxHeight=""; return; }
+  let i=Math.max(0,items.findIndex(li=>li.classList.contains("next")));
+  i=Math.min(i,items.length-SHOW);
+  cal.style.maxHeight=items.slice(i,i+SHOW).reduce((h,li)=>h+li.offsetHeight,0)+"px";
+  if(jump) cal.scrollTop=items[i].offsetTop;
+  document.getElementById("calHint").hidden=false;
+  updateCalFade();
+}
+function updateCalFade(){ const c=document.getElementById("cal"); c.classList.toggle("fade",c.scrollTop+c.clientHeight<c.scrollHeight-4); }
+document.getElementById("cal").addEventListener("scroll",updateCalFade,{passive:true});
+window.addEventListener("resize",()=>sizeCal(false));
 function renderYear(y){
   const r=RESULTS[y];
   document.querySelectorAll("#yearTabs .tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.y==y));
@@ -658,7 +682,8 @@ function renderYear(y){
 document.addEventListener("click",e=>{ const b=e.target.closest("#showAll"); if(!b) return;
   const open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open);
   document.querySelectorAll("#intlList .xtra").forEach(li=>li.hidden=!open);
-  b.textContent=open?"Weniger anzeigen":`Alle internationalen Resultate einblenden (${document.querySelectorAll("#intlList li").length})`; });
+  b.textContent=open?"Weniger anzeigen":`Alle internationalen Resultate einblenden (${document.querySelectorAll("#intlList li").length})`;
+  if(!open) backTo(document.getElementById("resultate")); });
 function renderYears(){
   const ys=Object.keys(RESULTS).sort((a,b)=>b-a);
   document.getElementById("yearTabs").innerHTML=ys.map(y=>`<button class="tab" role="tab" data-y="${y}">${y}</button>`).join("");
@@ -685,6 +710,10 @@ document.getElementById("yr").textContent=new Date().getFullYear();
 const hdr=document.querySelector("header");
 const onScroll=()=>hdr.classList.toggle("solid",window.scrollY>40);
 window.addEventListener("scroll",onScroll); onScroll();
+/* iOS: Höhe des Titelbilds nach dem Drehen des Geräts neu setzen */
+const setHero=()=>document.documentElement.style.setProperty("--hero-h",window.innerHeight+"px");
+setHero(); window.addEventListener("orientationchange",()=>setTimeout(setHero,350));
+let lastW=window.innerWidth; window.addEventListener("resize",()=>{ if(window.innerWidth!==lastW){ lastW=window.innerWidth; setHero(); } });
 burger.onclick=()=>menu.classList.toggle("open");
 menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>menu.classList.remove("open")));
 </script>
