@@ -1,0 +1,102 @@
+# Wettkampfkalender. Reihenfolge = Reihenfolge auf der Webseite.
+# typ: international (orange) | selektion (hellorange) | schweiz (grün)
+# hoehepunkt: ja  -> dunkel hervorgehoben; 'countdown' gibt Datum und Uhrzeit für den Countdown an
+
+- name: Langdistanz-SM
+  datum: 21. März
+  von: 2027-03-21
+  bis: 2027-03-21
+  info: Schweizer Meisterschaft · WRE
+  typ: schweiz
+
+- name: 10Mila
+  datum: 1.–2. Mai
+  von: 2027-05-01
+  bis: 2027-05-02
+  info: Staffel mit OK Linné · Schweden
+  typ: selektion
+
+- name: Testläufe Langdistanz und Mitteldistanz
+  datum: 8.–9. Mai
+  von: 2027-05-08
+  bis: 2027-05-09
+  info: Swedish League · Schweden · WRE
+  typ: selektion
+
+- name: Testlauf Mitteldistanz
+  datum: 20. Mai
+  von: 2027-05-20
+  bis: 2027-05-20
+  typ: selektion
+
+- name: Sprint-SM
+  datum: 23. Mai
+  von: 2027-05-23
+  bis: 2027-05-23
+  info: Schweizer Meisterschaft · WRE
+  typ: schweiz
+
+- name: Weltcup Schweden
+  datum: 2.–6. Juni
+  von: 2027-06-02
+  bis: 2027-06-06
+  info: Quali · Langdistanz · Mitteldistanz · Staffel
+  typ: international
+
+- name: Jukola
+  datum: 19.–20. Juni
+  von: 2027-06-19
+  bis: 2027-06-20
+  info: Staffel mit OK Linné · Finnland
+  typ: selektion
+
+- name: Weltcup Tschechien
+  datum: 2.–6. Juli
+  von: 2027-07-02
+  bis: 2027-07-06
+  info: Quali · Langdistanz · Mitteldistanz · Staffel
+  typ: international
+
+- name: WM Ungarn
+  datum: 10.–14. August
+  von: 2027-08-10
+  bis: 2027-08-14
+  info: Mitteldistanz-Quali 10.8. · Langdistanz 11.8. · Mitteldistanz-Final 13.8. · Staffel 14.8.
+  typ: international
+  hoehepunkt: ja
+  countdown: "2027-08-10T09:00:00+02:00"
+
+- name: Testläufe Sprint
+  datum: 31. Aug.–5. Sept.
+  von: 2027-08-31
+  bis: 2027-09-05
+  info: 3000 m Olten · Sprint · KO-Sprint
+  typ: selektion
+
+- name: Heim-EM Thun
+  datum: 30. Sept.–3. Okt.
+  von: 2027-09-30
+  bis: 2027-10-03
+  info: Sprint · Sprintstaffel · KO-Sprint
+  typ: international
+
+- name: 25manna
+  datum: 9. Oktober
+  von: 2027-10-09
+  bis: 2027-10-09
+  info: Staffel mit OK Linné · Schweden
+  typ: selektion
+
+- name: Nacht-SM
+  datum: 23. Oktober
+  von: 2027-10-23
+  bis: 2027-10-23
+  info: Schweizer Meisterschaft
+  typ: schweiz
+
+- name: Weltcup Spanien
+  datum: 27. Okt.–1. Nov.
+  von: 2027-10-27
+  bis: 2027-11-01
+  info: Sprint · KO-Sprint
+  typ: international

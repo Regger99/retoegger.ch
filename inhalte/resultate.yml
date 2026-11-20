@@ -1,0 +1,288 @@
+# Resultate pro Jahr. Neues Jahr einfach oben einfügen.
+# international: anlass, disziplin, rang (nur die Zahl). Die besten drei Ränge erscheinen zuerst.
+# sm: Schweizer Meisterschaften, Disziplin: Rang
+# hinweis: optionaler Satz unter den internationalen Resultaten
+# junioren: ja  -> Hinweis 'Einzelresultate in der Nachwuchskategorie'
+
+2026:
+  international:
+    - anlass: Militär-WM Stans
+      disziplin: Team
+      rang: 1
+    - anlass: Militär-WM Stans
+      disziplin: Langdistanz
+      rang: 3
+    - anlass: Militär-WM Stans
+      disziplin: Sprint
+      rang: 9
+    - anlass: Weltcup Vyšší Brod (CZE)
+      disziplin: Staffel
+      rang: 7
+    - anlass: Weltcup Vyšší Brod (CZE)
+      disziplin: Mitteldistanz
+      rang: 12
+    - anlass: Weltcup Vyšší Brod (CZE)
+      disziplin: Langdistanz
+      rang: 20
+    - anlass: EM Druskininkai (LTU)
+      disziplin: Staffel
+      rang: 12
+    - anlass: EM Druskininkai (LTU)
+      disziplin: Langdistanz
+      rang: 26
+    - anlass: EM Druskininkai (LTU)
+      disziplin: Mitteldistanz
+      rang: 40
+    - anlass: Heim-Weltcup Locarno
+      disziplin: Sprint
+      rang: 24
+    - anlass: Heim-Weltcup Locarno
+      disziplin: KO-Sprint
+      rang: 25
+    - anlass: Jukola (FIN)
+      disziplin: Staffel mit OK Linné
+      rang: 9
+    - anlass: 10Mila (SWE)
+      disziplin: Staffel mit OK Linné
+      rang: 11
+  sm:
+    Langdistanz: 6
+    Mitteldistanz: 3
+    Sprint: 9
+    Nacht: 2
+    Team: 2
+    Cup: 4
+
+2025:
+  international:
+    - anlass: 10Mila (SWE)
+      disziplin: Staffel mit OK Linné
+      rang: 4
+  hinweis: "Saison nach der Bänderverletzung an der Jukola beendet."
+  sm:
+    Mitteldistanz: 7
+    Nacht: 3
+    Cup: 7
+
+2024:
+  international:
+    - anlass: Studenten-WM Bansko (BUL)
+      disziplin: Staffel
+      rang: 1
+    - anlass: Studenten-WM Bansko (BUL)
+      disziplin: Sprintstaffel
+      rang: 2
+    - anlass: Studenten-WM Bansko (BUL)
+      disziplin: Mitteldistanz
+      rang: 14
+    - anlass: Militär-WM Cartagena (ESP)
+      disziplin: Staffel
+      rang: 2
+    - anlass: Militär-WM Cartagena (ESP)
+      disziplin: Team
+      rang: 3
+    - anlass: Militär-WM Cartagena (ESP)
+      disziplin: Mitteldistanz
+      rang: 11
+    - anlass: EM/Weltcup Mór (HUN)
+      disziplin: Mitteldistanz
+      rang: 17
+    - anlass: 10Mila Nynäshamn (SWE)
+      disziplin: Staffel mit OK Linné
+      rang: 2
+    - anlass: Jukola Lakia (FIN)
+      disziplin: Staffel mit OK Linné
+      rang: 2
+  sm:
+    Langdistanz: 6
+    Mitteldistanz: 10
+    Sprint: 10
+    Cup: 6
+
+2023:
+  international:
+    - anlass: Studenten-EM St. Gallen
+      disziplin: Mitteldistanz
+      rang: 1
+    - anlass: Studenten-EM St. Gallen
+      disziplin: Sprintstaffel
+      rang: 5
+    - anlass: Studenten-EM St. Gallen
+      disziplin: Sprint
+      rang: 10
+    - anlass: Weltcup Doksy (CZE)
+      disziplin: Mitteldistanz
+      rang: 11
+    - anlass: Jukola Borgå (FIN)
+      disziplin: Staffel mit OK Linné
+      rang: 2
+    - anlass: 10Mila Skellefteå (SWE)
+      disziplin: Staffel mit OK Linné
+      rang: 3
+  sm:
+    Langdistanz: 6
+    Mitteldistanz: 3
+    Sprint: 15
+    Nacht: 14
+    Team: 8
+    Cup: 6
+
+2022:
+  international:
+    - anlass: 10Mila Ånnaboda (SWE)
+      disziplin: Staffel mit OK Linné
+      rang: 1
+  hinweis: "Kaum Wettkämpfe wegen des Kniescheibenbruchs."
+  sm:
+    Nacht: 9
+    Team: 6
+
+2021:
+  international:
+    - anlass: Weltcup Idre fjäll (SWE)
+      disziplin: Staffel
+      rang: 17
+    - anlass: Weltcup Cansiglio (ITA)
+      disziplin: Sprintstaffel
+      rang: 19
+    - anlass: Weltcup Idre fjäll (SWE)
+      disziplin: Langdistanz
+      rang: 32
+    - anlass: Weltcup Cansiglio (ITA)
+      disziplin: Langdistanz
+      rang: 44
+    - anlass: EM/Weltcup Neuchâtel
+      disziplin: Sprint
+      rang: 48
+  sm:
+    Langdistanz: 11
+    Mitteldistanz: 3
+    Sprint: 8
+    Nacht: 5
+    Cup: 6
+
+2020:
+  international: []
+  hinweis: "Keine internationalen Einsätze aufgrund der Corona-Pandemie."
+  sm:
+    Langdistanz: 7
+    Mitteldistanz: 10
+    Sprint: 7
+    Cup: 9
+
+2019:
+  international:
+    - anlass: Junioren-WM Dänemark
+      disziplin: Langdistanz
+      rang: 4
+    - anlass: Junioren-WM Dänemark
+      disziplin: Staffel
+      rang: 4
+    - anlass: Junioren-WM Dänemark
+      disziplin: Sprint
+      rang: 7
+    - anlass: Junioren-WM Dänemark
+      disziplin: Mitteldistanz
+      rang: 23
+    - anlass: Junioren-Europacup Frankreich
+      disziplin: Staffel
+      rang: 3
+    - anlass: Junioren-Europacup Frankreich
+      disziplin: Sprint
+      rang: 10
+    - anlass: Junioren-Europacup Frankreich
+      disziplin: Langdistanz
+      rang: 27
+  junioren: ja
+  sm:
+    Langdistanz: 4
+    Mitteldistanz: 5
+    Sprint: 3
+    Nacht: 9
+    Team (Elite): 5
+    Staffel (Elite): 2
+    Cup (Grand Slam): 5
+
+2018:
+  international:
+    - anlass: Junioren-Europacup Schweiz
+      disziplin: Sprintstaffel
+      rang: 1
+    - anlass: Junioren-Europacup Schweiz
+      disziplin: Langdistanz
+      rang: 9
+    - anlass: Junioren-Europacup Schweiz
+      disziplin: Mitteldistanz
+      rang: 26
+    - anlass: Junioren-WM Ungarn
+      disziplin: Staffel
+      rang: 9
+    - anlass: Junioren-WM Ungarn
+      disziplin: Sprint
+      rang: 11
+    - anlass: Junioren-WM Ungarn
+      disziplin: Mitteldistanz
+      rang: 22
+    - anlass: Junioren-WM Ungarn
+      disziplin: Langdistanz
+      rang: 31
+  junioren: ja
+  sm:
+    Langdistanz: 2
+    Mitteldistanz: 6
+    Sprint: 3
+    Nacht: 8
+    Team (Elite): 3
+    Staffel (Elite): 6
+    Cup (Grand Slam): 4
+
+2017:
+  international:
+    - anlass: Jugend-Europameisterschaft Slowakei
+      disziplin: Sprint
+      rang: 17
+  junioren: ja
+  sm:
+    Langdistanz: 1
+    Mitteldistanz: 6
+    Sprint: 5
+    Nacht: 8
+    Team: 2
+    Staffel: 6
+    Cup: 2
+
+2016:
+  international: []
+  junioren: ja
+  sm:
+    Langdistanz: 6
+    Mitteldistanz: 9
+    Sprint: 3
+    Nacht: 10
+    Team: 1
+    Staffel: 6
+    Cup: 9
+
+2015:
+  international: []
+  junioren: ja
+  sm:
+    Langdistanz: 3
+    Mitteldistanz: 7
+    Sprint: 10
+    Nacht: 13
+    Team: 3
+    Staffel: 1
+    Cup: 8
+
+2014:
+  international: []
+  junioren: ja
+  sm:
+    Langdistanz: 23
+    Mitteldistanz: 18
+    Sprint: 21
+    Nacht: 33
+    Team: 14
+    Staffel: 13
+    Cup: 28
