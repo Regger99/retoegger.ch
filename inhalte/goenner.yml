@@ -1,0 +1,13 @@
+# Gönner: private Beiträge per QR-Code (Banking-App) oder Überweisung.
+# anzeigen: nein  -> der ganze Abschnitt verschwindet von der Seite
+# Aus IBAN, Name, PLZ und Ort erstellt die Seite den QR-Code selbst (QR-Rechnung ohne Betrag, ohne Strasse).
+
+anzeigen: ja
+iban: CH93 0076 2011 6238 5295 7   # ENTWURF: Beispiel-IBAN, vor dem Veröffentlichen durch deine ersetzen
+name: Reto Egger
+plz: 8197
+ort: Rafz
+mitteilung: Gönnerbeitrag Reto Egger
+
+# Gönnerinnen und Gönner, die mit Namen auf der Seite erscheinen möchten (nur mit Einverständnis)
+namen: []

@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Werkzeuge installieren
-        run: pip install pyyaml pillow beautifulsoup4
+        run: pip install pyyaml pillow beautifulsoup4 qrbill
       - name: Seite bauen
         run: python werkzeuge/build.py
       - uses: actions/upload-pages-artifact@v3

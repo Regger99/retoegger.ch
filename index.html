@@ -340,6 +340,39 @@ footer summary{cursor:pointer;color:#fff}
 
 /* Galerie */
 
+
+/* Gönner */
+.goenner{background:#fff}
+.goenner .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:start}
+.g-ways{display:grid;gap:14px;margin-top:28px}
+.g-way{border-left:3px solid var(--orange);padding:4px 0 4px 18px}
+.g-way h3{font-size:21px;margin-bottom:4px}
+.g-way p{font-size:16px;color:var(--muted)}
+.g-pay{background:var(--cream);border:1px solid var(--line);padding:28px}
+.g-pay h3{font-size:22px;margin-bottom:16px}
+.g-qr{display:flex;gap:22px;align-items:center;margin-bottom:20px}
+.g-qr img{width:150px;height:150px;background:#fff;padding:8px;border:1px solid var(--line);flex:none}
+.g-qr p{font-size:15px;color:var(--muted)}
+.g-data{list-style:none;font-size:16px}
+.g-data li{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:110px 1fr auto;gap:10px;align-items:center}
+.g-data li span:first-child{font-size:14px;font-weight:600;color:var(--muted)}
+.g-data b{font-family:var(--num);font-weight:600;letter-spacing:.02em;font-size:17px}
+.copy{font:inherit;font-size:13px;font-weight:600;color:var(--green);background:none;border:1.5px solid var(--green);padding:4px 10px;border-radius:3px;cursor:pointer}
+.copy:hover,.copy:focus-visible{background:var(--green);color:#fff}
+.g-after{font-size:15px;margin-top:16px}
+.g-after a{color:var(--green);font-weight:600}
+.g-fine{font-size:13px;color:var(--muted);margin-top:10px}
+.g-names{margin-top:30px;font-size:15px;color:var(--muted)}
+.g-names b{display:block;color:var(--ink);margin-bottom:4px}
+.cta .g-link{display:inline-block;margin-left:18px;color:#fff;font-size:15px;font-weight:600}
+.cta .g-link[hidden]{display:none}
+@media (max-width:900px){
+  .goenner .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .g-qr img{width:120px;height:120px}
+  .g-data li{grid-template-columns:1fr auto;gap:2px 10px}
+  .g-data li span:first-child{grid-column:1/-1}
+  .cta .g-link{display:block;margin:16px 0 0}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 /* Draft banner */
@@ -560,6 +593,32 @@ footer summary{cursor:pointer;color:#fff}
     <p data-en="Orienteering is elite sport without professional salaries. As a partner, you are visible wherever I race, and you bring the sport to you: with a talk, a company orienteering event or a joint training session. Partnerships start at CHF 100 per year.">Orientierungslauf ist Spitzensport ohne Profigehälter. Als Partner bist du dort sichtbar, wo ich unterwegs bin, und holst den Sport zu dir: mit einem Vortrag, einem Firmen-OL oder einem gemeinsamen Training. Partnerschaften gibt es ab 100 CHF pro Jahr.</p>
     <div class="offers"><span data-en="Logo on the national team kit">Logo auf dem Nationaldress</span><span data-en="Talk">Vortrag</span><span data-en="Company orienteering event">Firmen-OL</span><span data-en="Running session">Lauftraining</span><span data-en="Annual report">Jahresbericht</span></div>
     <a class="btn btn-primary" href="mailto:kontakt@retoegger.ch?subject=Partnerschaft%20mit%20Reto%20Egger" data-en-href="mailto:kontakt@retoegger.ch?subject=Partnership%20with%20Reto%20Egger" data-en="Request the sponsorship dossier / get in touch">Sponsorendossier anfragen / Kontakt aufnehmen</a>
+    <a class="g-link" href="#goenner" id="gLink" hidden data-en="Prefer to support me privately? Become a supporter">Lieber privat unterstützen? Gönner werden</a>
+  </div>
+</section>
+
+<section class="goenner" id="goenner" hidden>
+  <div class="wrap">
+    <div>
+      <h2 data-en="Become a supporter">Gönner werden</h2>
+      <p class="lead" data-en="Would you like to support me personally on my way to WOC 2027? A season costs around CHF 20,000 for travel, entry fees, accommodation and equipment. Every contribution helps me carry these costs.">Du möchtest mich persönlich auf dem Weg an die WM 2027 unterstützen? Eine Saison kostet rund 20'000 Franken für Reisen, Startgelder, Unterkunft und Ausrüstung. Jeder Beitrag hilft mir, diese Kosten zu tragen.</p>
+      <div class="g-ways">
+        <div class="g-way"><h3 data-en="Supporter from CHF 100 a year">Gönner ab 100 Franken pro Jahr</h3><p data-en="You receive a thank-you card, my season review by email and, if you like, your name on this page.">Du erhältst eine Dankeskarte, meinen Saisonrückblick per E-Mail und auf Wunsch deinen Namen auf dieser Seite.</p></div>
+        <div class="g-way"><h3 data-en="A contribution of any amount">Beitrag in beliebiger Höhe</h3><p data-en="Every amount counts, with no strings attached.">Jeder Betrag zählt, ganz ohne Verpflichtung.</p></div>
+      </div>
+      <div class="g-names" id="gNames" hidden><b data-en="Thank you to my supporters">Danke an meine Gönnerinnen und Gönner</b><span></span></div>
+    </div>
+    <div class="g-pay">
+      <h3 data-en="How to contribute">So geht’s</h3>
+      <div class="g-qr"><img src="assets/goenner-qr.svg" alt="QR-Code für eine Zahlung an Reto Egger" data-en-alt="QR code for a payment to Reto Egger"><p data-en="Scan the QR code with your Swiss banking app and enter the amount. From abroad, please use the IBAN.">Scanne den QR-Code mit deiner Banking-App und gib den Betrag ein. Oder überweise mit den Angaben unten.</p></div>
+      <ul class="g-data">
+        <li><span data-en="Recipient">Empfänger</span><span id="gName"></span><span></span></li>
+        <li><span>IBAN</span><b id="gIban"></b><button class="copy" id="gCopy" data-en="Copy">Kopieren</button></li>
+        <li><span data-en="Message">Mitteilung</span><span id="gMsg"></span><span></span></li>
+      </ul>
+      <p class="g-after" data-en='Drop me a short email at &lt;a href="mailto:kontakt@retoegger.ch?subject=Supporter"&gt;kontakt@retoegger.ch&lt;/a&gt; afterwards so I can say thank you.'>Schreib mir danach kurz an <a href="mailto:kontakt@retoegger.ch?subject=G%C3%B6nnerbeitrag">kontakt@retoegger.ch</a>, damit ich mich bedanken kann.</p>
+      <p class="g-fine" data-en="Contributions go to me as a private athlete and are not tax-deductible.">Beiträge gehen an mich als Athlet und sind nicht steuerlich abzugsfähig.</p>
+    </div>
   </div>
 </section>
 
@@ -707,10 +766,15 @@ fetch("daten.json").then(r=>r.json()).then(d=>{
   NEWS=d.news; EVENTS=d.kalender; RESULTS=d.resultate;
   renderNews(false); renderEvents(); renderYears();
   if(d.countdown){ WOC_START=new Date(d.countdown); tick(); setInterval(tick,1000); } else { document.getElementById("countdown").hidden=true; }
+  if(d.goenner){ const g=d.goenner;
+    gName.textContent=g.name+", "+g.ort; gIban.textContent=g.iban; gMsg.textContent=g.mitteilung;
+    if(g.namen.length){ gNames.hidden=false; gNames.querySelector("span").textContent=g.namen.join(", "); }
+    document.getElementById("goenner").hidden=false; gLink.hidden=false; }
   const fotos=[...new Set(NEWS.map(n=>n.credit).filter(Boolean))];
   document.getElementById("newsCredits").textContent=fotos.join(", ");
 });
 document.getElementById("yr").textContent=new Date().getFullYear();
+gCopy.addEventListener("click",()=>{ navigator.clipboard.writeText(gIban.textContent.replace(/\s/g,"")).then(()=>{ gCopy.textContent=T("Kopiert","Copied"); setTimeout(()=>gCopy.textContent=T("Kopieren","Copy"),2000); }); });
 
 /* Header & Menü */
 const hdr=document.querySelector("header");

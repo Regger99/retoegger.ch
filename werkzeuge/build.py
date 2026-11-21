@@ -196,6 +196,51 @@ def lade_resultate():
     return res
 
 
+# ---------- Gönner ----------
+def schweizer_qr(daten, ziel):
+    """Swiss QR Code (QR-Rechnung) als SVG mit Schweizerkreuz in der Mitte."""
+    import qrcode
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, border=0)
+    qr.add_data(daten)
+    qr.make(fit=True)
+    m = qr.get_matrix()
+    n = len(m)
+    pfad = "".join(f"M{x} {y}h1v1h-1z" for y, zeile in enumerate(m) for x, v in enumerate(zeile) if v)
+    k = n * 7 / 46                      # Kreuz: 7 mm auf 46 mm
+    a = (n - k) / 2
+    def r(x, y, w, h, f):
+        return f'<rect x="{x:.3f}" y="{y:.3f}" width="{w:.3f}" height="{h:.3f}" fill="{f}"/>'
+    s = k / 7 * 1.0                      # 1 mm in Moduleinheiten
+    kreuz = (r(a, a, k, k, "#fff") + r(a + .5 * s, a + .5 * s, k - s, k - s, "#000")
+             + r(a + 3 * s - .1 * s, a + 1.6 * s, 1.2 * s, 3.8 * s, "#fff")
+             + r(a + 1.6 * s, a + 3 * s - .1 * s, 3.8 * s, 1.2 * s, "#fff"))
+    ziel.write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {n} {n}" shape-rendering="crispEdges">'
+                    f'<rect width="{n}" height="{n}" fill="#fff"/><path d="{pfad}" fill="#000"/>{kreuz}</svg>', encoding="utf-8")
+
+
+def lade_goenner():
+    pfad = INH / "goenner.yml"
+    if not pfad.exists():
+        return None
+    g = lade_yaml(pfad) or {}
+    if not ja(g.get("anzeigen")):
+        return None
+    iban = re.sub(r"\s", "", text(g.get("iban"))).upper()
+    try:
+        import qrbill
+        rechnung = qrbill.QRBill(account=iban, language="de",
+                                 creditor={"name": text(g.get("name")), "pcode": text(g.get("plz")),
+                                           "city": text(g.get("ort")), "country": "CH"},
+                                 additional_information=text(g.get("mitteilung")))
+    except Exception as e:
+        fehler.append(f"goenner.yml: Aus diesen Angaben lässt sich kein QR-Code erstellen ({e}). Bitte IBAN, PLZ und Ort prüfen.")
+        return None
+    schweizer_qr(rechnung.qr_data(), OUT / "assets" / "goenner-qr.svg")
+    return {"iban": " ".join(iban[i:i + 4] for i in range(0, len(iban), 4)),
+            "name": text(g.get("name")), "ort": f'{text(g.get("plz"))} {text(g.get("ort"))}',
+            "mitteilung": text(g.get("mitteilung")), "namen": [text(x) for x in (g.get("namen") or [])]}
+
+
 # ---------- Seiten DE und EN ----------
 EN_ATTR = ("alt", "aria-label", "content", "title", "href")
 
@@ -237,6 +282,7 @@ def main():
     news = lade_news()
     kalender, countdown = lade_kalender()
     resultate = lade_resultate()
+    goenner = lade_goenner()
     if fehler:
         print("Die Seite wurde NICHT veröffentlicht. Bitte korrigieren:\n")
         for f in fehler:
@@ -245,7 +291,8 @@ def main():
     schreibe = lambda pfad, d: pfad.write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     de = lambda d: {k: v for k, v in d.items() if not k.endswith("_en")}
     schreibe(OUT / "daten.json", {"news": [de(n) for n in news], "kalender": [de(e) for e in kalender],
-                                  "countdown": countdown, "resultate": {j: de(r) for j, r in resultate.items()}})
+                                  "countdown": countdown, "resultate": {j: de(r) for j, r in resultate.items()},
+                                  "goenner": goenner})
     # Englisch: fehlt eine Übersetzung, erscheint der deutsche Text
     news_en = [{"date": n["date"], "title": n["title_en"] or n["title"], "teaser": n["teaser_en"] or n["teaser"],
                 "credit": n["credit"], "img": "/" + n["img"] if n["img"] else "", "text": n["text_en"] or n["text"]}
@@ -253,7 +300,8 @@ def main():
     kal_en = [{**de(e), "name": e["name_en"], "info": e["info_en"], "d": e["d_en"] or e["d"]} for e in kalender]
     res_en = {j: {"intl": r["intl_en"], "note": r["note_en"] or r["note"], "junior": r["junior"], "sm": r["sm_en"]}
               for j, r in resultate.items()}
-    schreibe(OUT / "en" / "daten.json", {"news": news_en, "kalender": kal_en, "countdown": countdown, "resultate": res_en})
+    schreibe(OUT / "en" / "daten.json", {"news": news_en, "kalender": kal_en, "countdown": countdown, "resultate": res_en,
+                                          "goenner": goenner})
     ohne = [n["date"] + " " + n["title"] for n in news if not (n["title_en"] and n["text_en"])]
     print(f"Fertig: {len(news)} News, {len(kalender)} Wettkämpfe, {len(resultate)} Resultatjahre, Deutsch und Englisch.")
     if ohne:
