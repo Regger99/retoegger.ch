@@ -3,7 +3,7 @@
 # Aus IBAN, Name, PLZ und Ort erstellt die Seite den QR-Code selbst (QR-Rechnung ohne Betrag, ohne Strasse).
 
 anzeigen: ja
-iban: CH93 0076 2011 6238 5295 7   # ENTWURF: Beispiel-IBAN, vor dem Veröffentlichen durch deine ersetzen
+iban: CH25 0025 6256 1308 8340 B
 name: Reto Egger
 plz: 8197
 ort: Rafz

@@ -27,6 +27,18 @@ Datei `inhalte/kalender.yml` öffnen, auf den Stift (Bearbeiten) klicken und ein
 
 Datei `inhalte/resultate.yml` bearbeiten. Ein neues Jahr fügst du oben ein, indem du einen bestehenden Jahresblock kopierst. Beim Rang nur die Zahl eintragen (also `3`, nicht `3.`).
 
+## Gönner
+
+Datei `inhalte/goenner.yml`. Möchte jemand mit Namen auf der Seite erscheinen, trägst du ihn unter `namen` ein (nur mit Einverständnis), zum Beispiel:
+
+```
+namen:
+  - Familie Muster, Rafz
+  - Anna Beispiel
+```
+
+Mit `anzeigen: nein` verschwindet der ganze Abschnitt samt Link. Den QR-Code erstellt die Seite aus IBAN, Name, PLZ und Ort selbst.
+
 ## Englische Version
 
 Die englische Seite (retoegger.ch/en/) entsteht beim Veröffentlichen automatisch:
