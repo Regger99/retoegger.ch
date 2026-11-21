@@ -84,6 +84,7 @@ header.solid{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),u
 .nav ul .lang a{display:inline;padding:0;font-size:inherit;font-weight:inherit;opacity:.55}
 .nav ul .lang a:hover{opacity:1;color:#fff}
 .lang .sep{opacity:.45;margin:0 2px}
+.lang-m{display:none}
 .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
 .burger svg{width:28px;height:28px}
 
@@ -382,7 +383,10 @@ footer summary{cursor:pointer;color:#fff}
   .nav ul.open{display:flex}
   .nav ul li{width:100%}
   .nav ul a{display:block;padding:12px 24px}
-  .nav ul .lang{display:inline-block;margin:12px 24px 4px}
+  .nav ul .lang-li{display:none}
+  .lang-m{display:inline-block;margin-left:auto;margin-right:8px;font-size:14px;padding:5px 10px}
+  .lang-m a{color:#fff;text-decoration:none;opacity:.55;padding:6px 0}
+  .lang-m .sep{margin:0 6px}
   .burger{display:block}
   header{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),url(assets/hoehenlinien.svg) center 35%/1600px auto,var(--green)}
   .stats .wrap{grid-template-columns:repeat(2,1fr)}
@@ -443,9 +447,10 @@ footer summary{cursor:pointer;color:#fff}
         <li><a href="#saison" data-en="2027 season">Saison 2027</a></li>
         <li><a href="#partner" data-en="Partners">Partner</a></li>
         <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
-        <li><span class="lang" data-en='<a href="/" hreflang="de" lang="de">DE</a><span class="sep">|</span>EN'>DE<span class="sep">|</span><a href="/en/" hreflang="en" lang="en">EN</a></span></li>
+        <li class="lang-li"><span class="lang" data-en='<a href="/" hreflang="de" lang="de">DE</a><span class="sep">|</span>EN'>DE<span class="sep">|</span><a href="/en/" hreflang="en" lang="en">EN</a></span></li>
       </ul>
     </nav>
+    <span class="lang lang-m" data-en='<a href="/" hreflang="de" lang="de">DE</a><span class="sep">|</span>EN'>DE<span class="sep">|</span><a href="/en/" hreflang="en" lang="en">EN</a></span>
     <button class="burger" aria-label="Menü öffnen" data-en-aria-label="Open menu" id="burger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
