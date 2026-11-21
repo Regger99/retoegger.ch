@@ -14,6 +14,7 @@ Alles, was du regelmässig änderst, liegt im Ordner **inhalte**. Sobald du eine
    - `kurztext`: ein bis zwei Sätze für die Kachel
    - `ausschnitt` (optional): `oben`, `mitte` oder `unten`, falls beim Zuschneiden der Kopf abgeschnitten wird
    - Unterhalb der zweiten `---`-Linie folgt der Artikel. Zwischen Absätzen eine leere Zeile.
+   - Englisch: `titel_en`, `kurztext_en` und unter der Zeile `## English` der englische Artikel. Fehlt die Übersetzung, zeigt die englische Seite den deutschen Text (der Build meldet das als Hinweis, die Seite wird trotzdem veröffentlicht).
 4. **Speichern:** Klicke auf **Commit changes**. Fertig.
 
 Text und Werte mit einem Doppelpunkt darin bitte immer in Anführungszeichen setzen, wie in der Vorlage.
@@ -25,6 +26,14 @@ Datei `inhalte/kalender.yml` öffnen, auf den Stift (Bearbeiten) klicken und ein
 ## Resultate nachtragen
 
 Datei `inhalte/resultate.yml` bearbeiten. Ein neues Jahr fügst du oben ein, indem du einen bestehenden Jahresblock kopierst. Beim Rang nur die Zahl eintragen (also `3`, nicht `3.`).
+
+## Englische Version
+
+Die englische Seite (retoegger.ch/en/) entsteht beim Veröffentlichen automatisch:
+
+- **News:** englische Felder wie oben beschrieben.
+- **Kalender und Resultate:** Namen, Disziplinen und Länder werden automatisch übersetzt (Weltcup → World Cup, WM → WOC, Mitteldistanz → Middle distance usw.). Passt etwas nicht, ergänzt du im Eintrag ein Feld mit `_en`, zum Beispiel `name_en`, `info_en`, `datum_en`, `anlass_en`, `disziplin_en` oder `hinweis_en`.
+- **Feste Texte der Seite** (Über mich, Partner, Impressum usw.): Sie stehen in `index.html`. Neben jedem deutschen Text steht die englische Fassung im Attribut `data-en="…"`. Änderst du einen deutschen Text, passe den englischen gleich daneben mit an.
 
 ## Wenn etwas nicht klappt
 

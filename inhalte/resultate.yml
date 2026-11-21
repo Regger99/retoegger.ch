@@ -2,6 +2,8 @@
 # international: anlass, disziplin, rang (nur die Zahl). Die besten drei Ränge erscheinen zuerst.
 # sm: Schweizer Meisterschaften, Disziplin: Rang
 # hinweis: optionaler Satz unter den internationalen Resultaten
+# Englisch: Anlass und Disziplin werden automatisch übersetzt, sonst anlass_en / disziplin_en ergänzen;
+#           zum Hinweis gehört hinweis_en
 # junioren: ja  -> Hinweis 'Einzelresultate in der Nachwuchskategorie'
 
 2026:
@@ -59,6 +61,7 @@
       disziplin: Staffel mit OK Linné
       rang: 4
   hinweis: "Saison nach der Bänderverletzung an der Jukola beendet."
+  hinweis_en: "Season over after the ligament injury at Jukola."
   sm:
     Mitteldistanz: 7
     Nacht: 3
@@ -133,6 +136,7 @@
       disziplin: Staffel mit OK Linné
       rang: 1
   hinweis: "Kaum Wettkämpfe wegen des Kniescheibenbruchs."
+  hinweis_en: "Hardly any races because of the fractured kneecap."
   sm:
     Nacht: 9
     Team: 6
@@ -164,6 +168,7 @@
 2020:
   international: []
   hinweis: "Keine internationalen Einsätze aufgrund der Corona-Pandemie."
+  hinweis_en: "No international races due to the coronavirus pandemic."
   sm:
     Langdistanz: 7
     Mitteldistanz: 10

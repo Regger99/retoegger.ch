@@ -2,12 +2,16 @@
 
 Aufruf:  python werkzeuge/build.py
 Ergebnis: Ordner «_site» mit der fertigen Seite (wird von GitHub automatisch veröffentlicht).
+          Die deutsche Seite liegt unter /, die englische unter /en/.
+          Englische Texte stehen in index.html als data-en-Attribute direkt neben dem Deutschen,
+          in den Inhalten als Felder mit der Endung _en.
 """
 import json, re, shutil, sys
 from datetime import date, datetime
 from pathlib import Path
 
 import yaml
+from bs4 import BeautifulSoup
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,6 +36,59 @@ def text(x):
 
 def ja(x):
     return x is True or str(x).strip().lower() in ("ja", "yes", "true", "1")
+
+
+def en_feld(e, feld, standard):
+    """Englisches Feld (feld_en), sonst automatische Übersetzung des deutschen Werts."""
+    if f"{feld}_en" in e:
+        return text(e.get(f"{feld}_en"))
+    return uebersetze(standard)
+
+
+# Begriffe für die automatische Übersetzung von Kalender und Resultaten.
+# Fehlt ein Begriff, bleibt er deutsch: dann im Eintrag ein Feld mit _en ergänzen.
+BEGRIFFE = [
+    ("Staffel mit OK Linné", "Relay with OK Linné"),
+    ("Schweizer Meisterschaft", "Swiss Championships"),
+    ("Jugend-Europameisterschaft", "EYOC"),
+    ("Junioren-Europacup", "Junior European Cup"),
+    ("Junioren-WM", "JWOC"), ("Studenten-WM", "WUOC"), ("Studenten-EM", "EUOC"),
+    ("Militär-WM", "CISM"), ("Heim-Weltcup", "Home World Cup"), ("Heim-EM", "Home EOC"),
+    ("Weltcup", "World Cup"), ("EM", "EOC"), ("WM", "WOC"),
+    ("Sprintstaffel", "Sprint relay"), ("KO-Sprint", "Knockout sprint"),
+    ("Mitteldistanz-Quali", "Middle qualification"), ("Mitteldistanz-Final", "Middle final"),
+    ("Mitteldistanz", "Middle distance"), ("Langdistanz", "Long distance"),
+    ("Staffel", "Relay"), ("Nacht", "Night"), ("Quali", "Qualification"),
+    ("Testläufe", "Selection races"), ("Testlauf", "Selection race"), ("und", "and"),
+    ("Schweiz", "Switzerland"), ("Schweden", "Sweden"), ("Finnland", "Finland"),
+    ("Norwegen", "Norway"), ("Dänemark", "Denmark"), ("Ungarn", "Hungary"),
+    ("Tschechien", "Czech Republic"), ("Slowakei", "Slovakia"), ("Frankreich", "France"),
+    ("Spanien", "Spain"), ("Italien", "Italy"), ("Österreich", "Austria"),
+    ("Deutschland", "Germany"), ("Litauen", "Lithuania"), ("Belgien", "Belgium"),
+]
+_BEGRIFF_RE = re.compile(r"(?<![\w-])(" + "|".join(re.escape(d) for d, _ in BEGRIFFE) + r")(?![\w-])")
+_BEGRIFF = dict(BEGRIFFE)
+
+
+def uebersetze(s):
+    return _BEGRIFF_RE.sub(lambda m: _BEGRIFF[m.group(1)], s)
+
+
+MONATE = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
+
+
+def datum_en(von, bis):
+    """21 March · 1–2 May · 30 Sep–3 Oct"""
+    try:
+        a, b = date.fromisoformat(von), date.fromisoformat(bis)
+    except ValueError:
+        return ""
+    if a == b:
+        return f"{a.day} {MONATE[a.month - 1]}"
+    if a.month == b.month:
+        return f"{a.day}–{b.day} {MONATE[a.month - 1]}"
+    return f"{a.day} {MONATE[a.month - 1][:3]}–{b.day} {MONATE[b.month - 1][:3]}"
 
 
 # ---------- News ----------
@@ -73,7 +130,10 @@ def lade_news():
         for feld in ("titel", "datum", "bild", "kurztext"):
             if not kopf.get(feld):
                 fehler.append(f"{md.name}: Das Feld «{feld}» fehlt oder ist leer.")
-        absaetze = [" ".join(a.split()) for a in re.split(r"\n\s*\n", m.group(2).strip()) if a.strip()]
+        teile = re.split(r"^##\s*English\s*$", m.group(2), maxsplit=1, flags=re.M | re.I)
+        absatz = lambda t: [" ".join(a.split()) for a in re.split(r"\n\s*\n", t.strip()) if a.strip()]
+        absaetze = absatz(teile[0])
+        absaetze_en = absatz(teile[1]) if len(teile) > 1 else []
         news.append({
             "date": text(kopf.get("datum")),
             "title": text(kopf.get("titel")),
@@ -81,6 +141,9 @@ def lade_news():
             "credit": text(kopf.get("foto")),
             "img": news_bild(text(kopf.get("bild")), text(kopf.get("ausschnitt")), md.name) if kopf.get("bild") else "",
             "text": absaetze,
+            "title_en": text(kopf.get("titel_en")),
+            "teaser_en": text(kopf.get("kurztext_en")),
+            "text_en": absaetze_en,
         })
     news.sort(key=lambda n: n["date"], reverse=True)
     return news
@@ -99,7 +162,9 @@ def lade_kalender():
         bis = text(e.get("bis")) or von
         kal.append({"name": name, "d": text(e.get("datum")), "from": von, "to": bis,
                     "info": text(e.get("info")), "type": typen.get(e.get("typ"), "nat"),
-                    "woc": ja(e.get("hoehepunkt"))})
+                    "woc": ja(e.get("hoehepunkt")),
+                    "name_en": en_feld(e, "name", name), "info_en": en_feld(e, "info", text(e.get("info"))),
+                    "d_en": text(e.get("datum_en")) or datum_en(von, bis)})
         if e.get("countdown"):
             c = e["countdown"]
             countdown = c.isoformat() if isinstance(c, datetime) else text(c)
@@ -123,15 +188,49 @@ def lade_resultate():
             "note": text(r.get("hinweis")),
             "junior": ja(r.get("junioren")),
             "sm": {k: rang(v) for k, v in (r.get("sm") or {}).items()},
+            "intl_en": [[en_feld(e, "anlass", text(e.get("anlass"))), en_feld(e, "disziplin", text(e.get("disziplin"))),
+                         rang(e.get("rang"))] for e in (r.get("international") or [])],
+            "note_en": text(r.get("hinweis_en")),
+            "sm_en": {uebersetze(str(k)): rang(v) for k, v in (r.get("sm") or {}).items()},
         }
     return res
+
+
+# ---------- Seiten DE und EN ----------
+EN_ATTR = ("alt", "aria-label", "content", "title", "href")
+
+
+def seite(html, sprache):
+    soup = BeautifulSoup(html, "html.parser")
+    for el in soup.find_all(True):
+        for k in list(el.attrs):
+            if not k.startswith("data-en"):
+                continue
+            wert = el.attrs.pop(k)
+            if sprache != "en":
+                continue
+            if k == "data-en":
+                el.clear()
+                el.append(BeautifulSoup(wert, "html.parser"))
+            elif k[8:] in EN_ATTR:
+                el[k[8:]] = wert
+    if sprache == "en":
+        soup.html["lang"] = "en"
+    out = str(soup)
+    if sprache == "en":
+        # Die englische Seite liegt in /en/: Verweise auf Bilder, Schriften usw. absolut setzen
+        out = re.sub(r'(["\'(])assets/', r"\1/assets/", out)
+    return out
 
 
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
-    shutil.copy(ROOT / "index.html", OUT / "index.html")
+    roh = (ROOT / "index.html").read_text(encoding="utf-8")
+    (OUT / "index.html").write_text(seite(roh, "de"), encoding="utf-8")
+    (OUT / "en").mkdir()
+    (OUT / "en" / "index.html").write_text(seite(roh, "en"), encoding="utf-8")
     shutil.copytree(ROOT / "assets", OUT / "assets")
     if (ROOT / "CNAME").exists():
         shutil.copy(ROOT / "CNAME", OUT / "CNAME")
@@ -143,10 +242,22 @@ def main():
         for f in fehler:
             print("  - " + f)
         sys.exit(1)
-    (OUT / "daten.json").write_text(json.dumps(
-        {"news": news, "kalender": kalender, "countdown": countdown, "resultate": resultate},
-        ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"Fertig: {len(news)} News, {len(kalender)} Wettkämpfe, {len(resultate)} Resultatjahre.")
+    schreibe = lambda pfad, d: pfad.write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    de = lambda d: {k: v for k, v in d.items() if not k.endswith("_en")}
+    schreibe(OUT / "daten.json", {"news": [de(n) for n in news], "kalender": [de(e) for e in kalender],
+                                  "countdown": countdown, "resultate": {j: de(r) for j, r in resultate.items()}})
+    # Englisch: fehlt eine Übersetzung, erscheint der deutsche Text
+    news_en = [{"date": n["date"], "title": n["title_en"] or n["title"], "teaser": n["teaser_en"] or n["teaser"],
+                "credit": n["credit"], "img": "/" + n["img"] if n["img"] else "", "text": n["text_en"] or n["text"]}
+               for n in news]
+    kal_en = [{**de(e), "name": e["name_en"], "info": e["info_en"], "d": e["d_en"] or e["d"]} for e in kalender]
+    res_en = {j: {"intl": r["intl_en"], "note": r["note_en"] or r["note"], "junior": r["junior"], "sm": r["sm_en"]}
+              for j, r in resultate.items()}
+    schreibe(OUT / "en" / "daten.json", {"news": news_en, "kalender": kal_en, "countdown": countdown, "resultate": res_en})
+    ohne = [n["date"] + " " + n["title"] for n in news if not (n["title_en"] and n["text_en"])]
+    print(f"Fertig: {len(news)} News, {len(kalender)} Wettkämpfe, {len(resultate)} Resultatjahre, Deutsch und Englisch.")
+    if ohne:
+        print("Hinweis: Ohne englischen Text (auf der englischen Seite erscheint Deutsch): " + "; ".join(ohne))
 
 
 if __name__ == "__main__":

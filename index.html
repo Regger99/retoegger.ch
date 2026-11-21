@@ -3,23 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reto Egger · Orientierungsläufer</title>
-<meta name="description" content="Reto Egger, Orientierungsläufer im Schweizer Nationalkader. News, Erfolge, Saison 2027 und Partner.">
-<link rel="canonical" href="https://retoegger.ch/">
+<title data-en="Reto Egger · Orienteer">Reto Egger · Orientierungsläufer</title>
+<meta name="description" content="Reto Egger, Orientierungsläufer im Schweizer Nationalkader. News, Erfolge, Saison 2027 und Partner." data-en-content="Reto Egger, orienteer in the Swiss national team. News, results, the 2027 season and partners.">
+<link rel="canonical" href="https://retoegger.ch/" data-en-href="https://retoegger.ch/en/">
+<link rel="alternate" hreflang="de" href="https://retoegger.ch/">
+<link rel="alternate" hreflang="en" href="https://retoegger.ch/en/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#1d3a2e">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="de_CH">
+<meta property="og:locale" content="de_CH" data-en-content="en_GB">
 <meta property="og:site_name" content="Reto Egger">
-<meta property="og:title" content="Reto Egger · Orientierungsläufer">
-<meta property="og:description" content="Orientierungsläufer im Schweizer Nationalkader. News, Resultate und mein Weg an die WM 2027.">
-<meta property="og:url" content="https://retoegger.ch/">
+<meta property="og:title" content="Reto Egger · Orientierungsläufer" data-en-content="Reto Egger · Orienteer">
+<meta property="og:description" content="Orientierungsläufer im Schweizer Nationalkader. News, Resultate und mein Weg an die WM 2027." data-en-content="Orienteer in the Swiss national team. News, results and my road to WOC 2027.">
+<meta property="og:url" content="https://retoegger.ch/" data-en-content="https://retoegger.ch/en/">
 <meta property="og:image" content="https://retoegger.ch/assets/og-bild.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Reto Egger an der EM 2026 in Litauen">
+<meta property="og:image:alt" content="Reto Egger an der EM 2026 in Litauen" data-en-content="Reto Egger at the 2026 European Championships in Lithuania">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-display: swap; font-weight: 600; src:url(assets/fonts/barlow-condensed-latin-ext-600-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
@@ -79,7 +81,9 @@ header.solid{background:linear-gradient(rgba(29,58,46,.86),rgba(29,58,46,.86)),u
 .nav ul a{color:#fff;text-decoration:none;font-size:15px;font-weight:500;opacity:.9}
 .nav ul a:hover{opacity:1;color:var(--orange-soft)}
 .lang{font-size:13px;font-weight:600;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:3px;padding:3px 8px}
-.lang span{opacity:.45}
+.nav ul .lang a{display:inline;padding:0;font-size:inherit;font-weight:inherit;opacity:.55}
+.nav ul .lang a:hover{opacity:1;color:#fff}
+.lang .sep{opacity:.45;margin:0 2px}
 .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
 .burger svg{width:28px;height:28px}
 
@@ -401,79 +405,79 @@ footer summary{cursor:pointer;color:#fff}
     <nav>
       <ul id="menu">
         <li><a href="#news">News</a></li>
-        <li><a href="#ueber-mich">Über mich</a></li>
-        <li><a href="#erfolge">Erfolge</a></li>
-        <li><a href="#saison">Saison 2027</a></li>
-        <li><a href="#partner">Partner</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><span class="lang" title="Englische Version folgt">DE <span>| EN</span></span></li>
+        <li><a href="#ueber-mich" data-en="About">Über mich</a></li>
+        <li><a href="#erfolge" data-en="Results">Erfolge</a></li>
+        <li><a href="#saison" data-en="2027 season">Saison 2027</a></li>
+        <li><a href="#partner" data-en="Partners">Partner</a></li>
+        <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
+        <li><span class="lang" data-en='<a href="/" hreflang="de" lang="de">DE</a><span class="sep">|</span>EN'>DE<span class="sep">|</span><a href="/en/" hreflang="en" lang="en">EN</a></span></li>
       </ul>
     </nav>
-    <button class="burger" aria-label="Menü öffnen" id="burger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <button class="burger" aria-label="Menü öffnen" data-en-aria-label="Open menu" id="burger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
 
 <section class="hero" id="home">
-  <img src="assets/img/hero.jpg" alt="Reto Egger an der EM 2026 in Litauen">
+  <img src="assets/img/hero.jpg" alt="Reto Egger an der EM 2026 in Litauen" data-en-alt="Reto Egger at the 2026 European Championships in Lithuania">
   <div class="wrap">
-    <div class="eyebrow">Orientierungsläufer im Schweizer Nationalkader</div>
+    <div class="eyebrow" data-en="Orienteer in the Swiss national team">Orientierungsläufer im Schweizer Nationalkader</div>
     <h1>Reto Egger</h1>
-    <div class="claim">Natur. Kopf. Ausdauer.</div>
+    <div class="claim" data-en="Nature. Mind. Endurance.">Natur. Kopf. Ausdauer.</div>
     <div class="btns">
-      <a class="btn btn-primary" href="#news">Zu den News</a>
-      <a class="btn btn-ghost" href="#partner-werden">Partner werden</a>
+      <a class="btn btn-primary" href="#news" data-en="Read the news">Zu den News</a>
+      <a class="btn btn-ghost" href="#partner-werden" data-en="Become a partner">Partner werden</a>
     </div>
   </div>
 </section>
 
 <section id="news">
   <div class="wrap">
-    <h2>Aktuelles aus Training und Wettkampf</h2>
+    <h2 data-en="News from training and racing">Aktuelles aus Training und Wettkampf</h2>
     <div class="news-grid" id="newsGrid"></div>
-    <div class="more"><a class="link" href="#news" id="allNews">Alle News</a></div>
+    <div class="more"><a class="link" href="#news" id="allNews" data-en="All news">Alle News</a></div>
   </div>
 </section>
 
 <section class="about" id="ueber-mich">
   <div class="wrap">
-    <h2>Natur. Kopf. Ausdauer.</h2>
-    <p class="lead">2010 habe ich den Orientierungslauf entdeckt, seit 2020 laufe ich im Schweizer Elite-Nationalkader. Mich fasziniert, dass in diesem Sport Beine und Kopf gleichermassen zählen. Beruflich bin ich in der Holzbranche zu Hause: Der Wald ist mein Wettkampfgelände, und das Holz, das darin wächst, prägt meinen Beruf.</p>
+    <h2 data-en="Nature. Mind. Endurance.">Natur. Kopf. Ausdauer.</h2>
+    <p class="lead" data-en="I discovered orienteering in 2010, and I have been running for the Swiss elite national team since 2020. What fascinates me about this sport is that legs and head count equally. Professionally, I am at home in the timber industry: the forest is my competition arena, and the wood that grows in it shapes my work.">2010 habe ich den Orientierungslauf entdeckt, seit 2020 laufe ich im Schweizer Elite-Nationalkader. Mich fasziniert, dass in diesem Sport Beine und Kopf gleichermassen zählen. Beruflich bin ich in der Holzbranche zu Hause: Der Wald ist mein Wettkampfgelände, und das Holz, das darin wächst, prägt meinen Beruf.</p>
     <div class="pillars">
-      <div class="pillar"><h3>Natur</h3><p>Ich bin gerne draussen und entdecke immer wieder neue Oasen in der Natur. Im OL laufe ich quer durch den Wald, nur mit Karte und Kompass.</p></div>
-      <div class="pillar"><h3>Kopf</h3><p>Wer im OL schnell sein will, muss unter voller Belastung die richtigen Entscheidungen treffen. Ich mag es, wenn der Kopf gefordert ist: im Wald genauso wie als Wirtschaftsingenieur.</p></div>
-      <div class="pillar"><h3>Ausdauer</h3><p>Rund 150 Tage im Jahr bin ich für gezielte Trainings und Wettkämpfe in ganz Europa und darüber hinaus unterwegs. Nach den schweren Verletzungen 2022 und 2025 habe ich mich jedes Mal in den Weltcup zurückgelaufen.</p></div>
+      <div class="pillar"><h3 data-en="Nature">Natur</h3><p data-en="I love being outdoors and keep discovering new hidden spots in nature. In orienteering, I run straight through the forest with nothing but a map and compass.">Ich bin gerne draussen und entdecke immer wieder neue Oasen in der Natur. Im OL laufe ich quer durch den Wald, nur mit Karte und Kompass.</p></div>
+      <div class="pillar"><h3 data-en="Mind">Kopf</h3><p data-en="To be fast in orienteering, you have to make the right decisions under full physical load. I enjoy it when my head is challenged: in the forest just as much as in my work as an industrial engineer.">Wer im OL schnell sein will, muss unter voller Belastung die richtigen Entscheidungen treffen. Ich mag es, wenn der Kopf gefordert ist: im Wald genauso wie als Wirtschaftsingenieur.</p></div>
+      <div class="pillar"><h3 data-en="Endurance">Ausdauer</h3><p data-en="I spend around 150 days a year travelling to targeted training and competitions across Europe and beyond. After serious injuries in 2022 and 2025, I fought my way back into the World Cup both times.">Rund 150 Tage im Jahr bin ich für gezielte Trainings und Wettkämpfe in ganz Europa und darüber hinaus unterwegs. Nach den schweren Verletzungen 2022 und 2025 habe ich mich jedes Mal in den Weltcup zurückgelaufen.</p></div>
     </div>
 
     <div class="way">
       <div class="way-photo">
-        <h3 class="way-title">Mein Weg</h3>
-        <img src="assets/portrait.jpg" alt="Porträt Reto Egger im Dress des Schweizer Nationalkaders">
+        <h3 class="way-title" data-en="My journey">Mein Weg</h3>
+        <img src="assets/portrait.jpg" alt="Porträt Reto Egger im Dress des Schweizer Nationalkaders" data-en-alt="Portrait of Reto Egger in the Swiss national team kit">
         <p>OLK Rafzerfeld-Bülach<br>OK Linné Uppsala (SWE)</p>
       </div>
       <div>
       <ol class="tl">
-        <li class=""><span class="dot"></span><span class="yr">2010</span><p>Mit 10 Jahren den Orientierungslauf entdeckt.</p></li>
-        <li class=""><span class="dot"></span><span class="yr">2014</span><p>Sprung ins Regionalkader.</p></li>
-        <li class="hit"><span class="dot"></span><span class="yr">2018</span><p>Aufnahme ins Junioren-Nationalkader, erste Junioren-WM und Gold am Junioren-Europacup.</p></li>
-        <li class="hit"><span class="dot"></span><span class="yr">2019</span><p>Junioren-WM in Dänemark mit den Rängen 4, 4 und 7.</p></li>
-        <li class=""><span class="dot"></span><span class="yr">2020</span><p>Aufnahme ins Elite-Nationalkader.</p></li>
-        <li class=""><span class="dot"></span><span class="yr">2021</span><p>Erste Weltcupeinsätze.</p></li>
-        <li class="low"><span class="dot"></span><span class="yr">2022</span><p>Verletzung (Kniescheibenbruch), Saison ohne internationale Einsätze.</p></li>
-        <li class="hit"><span class="dot"></span><span class="yr">2023</span><p>Studenten-Europameister, 11. Rang im Weltcup und Ersatzläufer an der Heim-WM.</p></li>
-        <li class="hit"><span class="dot"></span><span class="yr">2024</span><p>Studenten-Weltmeister, 17. Rang an der EM in Ungarn sowie Silber und Bronze an der Militär-WM.</p></li>
-        <li class="low"><span class="dot"></span><span class="yr">2025</span><p>Verletzung (Bänderrisse im Sprunggelenk), Saison ohne internationale Einsätze.</p></li>
-        <li class="hit last"><span class="dot"></span><span class="yr">2026</span><p>Comeback im Weltcup mit Top-20-Resultaten, Studienabschluss sowie Gold und Bronze an der Militär-WM.</p></li>
+        <li class=""><span class="dot"></span><span class="yr">2010</span><p data-en="Discovered orienteering at the age of 10.">Mit 10 Jahren den Orientierungslauf entdeckt.</p></li>
+        <li class=""><span class="dot"></span><span class="yr">2014</span><p data-en="Selected for the regional squad.">Sprung ins Regionalkader.</p></li>
+        <li class="hit"><span class="dot"></span><span class="yr">2018</span><p data-en="Selected for the Swiss junior national team, first Junior World Championships and gold at the Junior European Cup.">Aufnahme ins Junioren-Nationalkader, erste Junioren-WM und Gold am Junioren-Europacup.</p></li>
+        <li class="hit"><span class="dot"></span><span class="yr">2019</span><p data-en="Junior World Championships in Denmark with 4th, 4th and 7th place.">Junioren-WM in Dänemark mit den Rängen 4, 4 und 7.</p></li>
+        <li class=""><span class="dot"></span><span class="yr">2020</span><p data-en="Selected for the Swiss elite national team.">Aufnahme ins Elite-Nationalkader.</p></li>
+        <li class=""><span class="dot"></span><span class="yr">2021</span><p data-en="First World Cup races.">Erste Weltcupeinsätze.</p></li>
+        <li class="low"><span class="dot"></span><span class="yr">2022</span><p data-en="Injury (fractured kneecap), a season without international races.">Verletzung (Kniescheibenbruch), Saison ohne internationale Einsätze.</p></li>
+        <li class="hit"><span class="dot"></span><span class="yr">2023</span><p data-en="European University Champion, 11th place in the World Cup and reserve runner at the home World Championships.">Studenten-Europameister, 11. Rang im Weltcup und Ersatzläufer an der Heim-WM.</p></li>
+        <li class="hit"><span class="dot"></span><span class="yr">2024</span><p data-en="World University Champion, 17th place at the European Championships in Hungary, plus silver and bronze at the Military World Championships.">Studenten-Weltmeister, 17. Rang an der EM in Ungarn sowie Silber und Bronze an der Militär-WM.</p></li>
+        <li class="low"><span class="dot"></span><span class="yr">2025</span><p data-en="Injury (torn ankle ligaments), a season without international races.">Verletzung (Bänderrisse im Sprunggelenk), Saison ohne internationale Einsätze.</p></li>
+        <li class="hit last"><span class="dot"></span><span class="yr">2026</span><p data-en="World Cup comeback with top 20 results, graduation, plus gold and bronze at the Military World Championships.">Comeback im Weltcup mit Top-20-Resultaten, Studienabschluss sowie Gold und Bronze an der Militär-WM.</p></li>
       </ol>
-      <div class="outlook"><span class="tag">Ausblick</span><span class="yr">2027</span><p>WM in Ungarn und Heim-EM in Thun. <a href="#saison">Zur Saison 2027</a></p></div>
+      <div class="outlook"><span class="tag" data-en="Outlook">Ausblick</span><span class="yr">2027</span><p data-en='World Championships in Hungary and home European Championships in Thun. <a href="#saison">See the 2027 season</a>'>WM in Ungarn und Heim-EM in Thun. <a href="#saison">Zur Saison 2027</a></p></div>
       </div>
     </div>
 
     <div class="where">
-      <h3 style="font-size:34px">Wo ich trainiere</h3>
+      <h3 style="font-size:34px" data-en="Where I train">Wo ich trainiere</h3>
       <div class="heat-grid">
-        <button class="heat" data-big="assets/heat-rafz-gross.jpg" aria-label="Rafz · Zürcher Unterland vergrössern"><span class="hm"><img src="assets/heat-rafz.jpg" alt="Heatmap der Trainings rund um Rafz"></span><span class="heat-cap"><h4>Rafz · Zürcher Unterland</h4></span></button>
-        <button class="heat" data-big="assets/heat-bern-gross.jpg" aria-label="Köniz · Region Bern vergrössern"><span class="hm"><img src="assets/heat-bern.jpg" alt="Heatmap der Trainings rund um Köniz und Bern"></span><span class="heat-cap"><h4>Köniz · Region Bern</h4></span></button>
-        <button class="heat" data-big="assets/heat-europa-gross.jpg" aria-label="Unterwegs · Europa vergrössern"><span class="hm"><img src="assets/heat-europa.jpg" alt="Karte der Trainingsorte in Europa"></span><span class="heat-cap"><h4>Unterwegs · Europa</h4></span></button>
+        <button class="heat" data-big="assets/heat-rafz-gross.jpg" aria-label="Rafz · Zürcher Unterland vergrössern" data-en-aria-label="Enlarge Rafz · Zürcher Unterland"><span class="hm"><img src="assets/heat-rafz.jpg" alt="Heatmap der Trainings rund um Rafz" data-en-alt="Heatmap of my training around Rafz"></span><span class="heat-cap"><h4>Rafz · Zürcher Unterland</h4></span></button>
+        <button class="heat" data-big="assets/heat-bern-gross.jpg" aria-label="Köniz · Region Bern vergrössern" data-en-aria-label="Enlarge Köniz · Bern region"><span class="hm"><img src="assets/heat-bern.jpg" alt="Heatmap der Trainings rund um Köniz und Bern" data-en-alt="Heatmap of my training around Köniz and Bern"></span><span class="heat-cap"><h4 data-en="Köniz · Bern region">Köniz · Region Bern</h4></span></button>
+        <button class="heat" data-big="assets/heat-europa-gross.jpg" aria-label="Unterwegs · Europa vergrössern" data-en-aria-label="Enlarge On the road · Europe"><span class="hm"><img src="assets/heat-europa.jpg" alt="Karte der Trainingsorte in Europa" data-en-alt="Map of my training locations in Europe"></span><span class="heat-cap"><h4 data-en="On the road · Europe">Unterwegs · Europa</h4></span></button>
       </div>
     </div>
   </div>
@@ -481,18 +485,18 @@ footer summary{cursor:pointer;color:#fff}
 
 <section id="erfolge">
   <div class="wrap">
-    <h2>Höhepunkte bisher</h2>
+    <h2 data-en="Highlights so far">Höhepunkte bisher</h2>
     <div class="hl-grid">
-      <div class="hl"><h4>Studenten-EM</h4><ul class="hl-list"><li><i class="md m-g"></i><span>Gold Mitteldistanz · 2023, St. Gallen (SUI)</span></li></ul></div>
-      <div class="hl"><h4>Studenten-WM</h4><ul class="hl-list"><li><i class="md m-g"></i><span>Gold Staffel · 2024, Bansko (BUL)</span></li><li><i class="md m-s"></i><span>Silber Sprintstaffel · 2024, Bansko (BUL)</span></li></ul></div>
-      <div class="hl"><h4>Militär-WM</h4><ul class="hl-list"><li><i class="md m-g"></i><span>Gold Team · 2026, Stans (SUI)</span></li><li><i class="md m-b"></i><span>Bronze Langdistanz · 2026, Stans (SUI)</span></li><li><i class="md m-s"></i><span>Silber Staffel · 2024, Cartagena (ESP)</span></li><li><i class="md m-b"></i><span>Bronze Team · 2024, Cartagena (ESP)</span></li></ul></div>
-      <div class="hl"><h4>Weltcup</h4><ul class="hl-list"><li><i class="md m-r"></i><span>11. Mitteldistanz · 2023, Doksy (CZE)</span></li><li><i class="md m-r"></i><span>12. Mitteldistanz · 2026, Vyšší Brod (CZE)</span></li><li><i class="md m-r"></i><span>17. Mitteldistanz · EM 2024, Mór (HUN)</span></li><li><i class="md m-r"></i><span>20. Langdistanz · 2026, Vyšší Brod (CZE)</span></li></ul></div>
-      <div class="hl"><h4>10Mila</h4><ul class="hl-list"><li><i class="md m-g"></i><span>Sieg · 2022, Ånnaboda (SWE)</span></li><li><i class="md m-s"></i><span>2. Rang · 2024, Nynäshamn (SWE)</span></li><li><i class="md m-b"></i><span>3. Rang · 2023, Skellefteå (SWE)</span></li></ul><p>Staffel mit OK Linné</p></div>
-      <div class="hl"><h4>Jukola</h4><ul class="hl-list"><li><i class="md m-s"></i><span>2. Rang · 2023, Borgå (FIN)</span></li><li><i class="md m-s"></i><span>2. Rang · 2024, Lakia (FIN)</span></li></ul><p>Staffel mit OK Linné</p></div>
+      <div class="hl"><h4 data-en="European University Championships">Studenten-EM</h4><ul class="hl-list"><li><i class="md m-g"></i><span data-en="Gold middle distance · 2023, St. Gallen (SUI)">Gold Mitteldistanz · 2023, St. Gallen (SUI)</span></li></ul></div>
+      <div class="hl"><h4 data-en="World University Championships">Studenten-WM</h4><ul class="hl-list"><li><i class="md m-g"></i><span data-en="Gold relay · 2024, Bansko (BUL)">Gold Staffel · 2024, Bansko (BUL)</span></li><li><i class="md m-s"></i><span data-en="Silver sprint relay · 2024, Bansko (BUL)">Silber Sprintstaffel · 2024, Bansko (BUL)</span></li></ul></div>
+      <div class="hl"><h4 data-en="Military World Championships">Militär-WM</h4><ul class="hl-list"><li><i class="md m-g"></i><span data-en="Gold team · 2026, Stans (SUI)">Gold Team · 2026, Stans (SUI)</span></li><li><i class="md m-b"></i><span data-en="Bronze long distance · 2026, Stans (SUI)">Bronze Langdistanz · 2026, Stans (SUI)</span></li><li><i class="md m-s"></i><span data-en="Silver relay · 2024, Cartagena (ESP)">Silber Staffel · 2024, Cartagena (ESP)</span></li><li><i class="md m-b"></i><span data-en="Bronze team · 2024, Cartagena (ESP)">Bronze Team · 2024, Cartagena (ESP)</span></li></ul></div>
+      <div class="hl"><h4 data-en="World Cup">Weltcup</h4><ul class="hl-list"><li><i class="md m-r"></i><span data-en="11th middle distance · 2023, Doksy (CZE)">11. Mitteldistanz · 2023, Doksy (CZE)</span></li><li><i class="md m-r"></i><span data-en="12th middle distance · 2026, Vyšší Brod (CZE)">12. Mitteldistanz · 2026, Vyšší Brod (CZE)</span></li><li><i class="md m-r"></i><span data-en="17th middle distance · EOC 2024, Mór (HUN)">17. Mitteldistanz · EM 2024, Mór (HUN)</span></li><li><i class="md m-r"></i><span data-en="20th long distance · 2026, Vyšší Brod (CZE)">20. Langdistanz · 2026, Vyšší Brod (CZE)</span></li></ul></div>
+      <div class="hl"><h4>10Mila</h4><ul class="hl-list"><li><i class="md m-g"></i><span data-en="Win · 2022, Ånnaboda (SWE)">Sieg · 2022, Ånnaboda (SWE)</span></li><li><i class="md m-s"></i><span data-en="2nd place · 2024, Nynäshamn (SWE)">2. Rang · 2024, Nynäshamn (SWE)</span></li><li><i class="md m-b"></i><span data-en="3rd place · 2023, Skellefteå (SWE)">3. Rang · 2023, Skellefteå (SWE)</span></li></ul><p data-en="Relay with OK Linné">Staffel mit OK Linné</p></div>
+      <div class="hl"><h4>Jukola</h4><ul class="hl-list"><li><i class="md m-s"></i><span data-en="2nd place · 2023, Borgå (FIN)">2. Rang · 2023, Borgå (FIN)</span></li><li><i class="md m-s"></i><span data-en="2nd place · 2024, Lakia (FIN)">2. Rang · 2024, Lakia (FIN)</span></li></ul><p data-en="Relay with OK Linné">Staffel mit OK Linné</p></div>
     </div>
 
     <div class="years">
-      <h3 id="resultate">Resultate nach Jahr</h3>
+      <h3 id="resultate" data-en="Results by year">Resultate nach Jahr</h3>
       <div class="tabs" role="tablist" id="yearTabs"></div>
       <div class="year-panel" id="yearPanel"></div>
     </div>
@@ -503,44 +507,44 @@ footer summary{cursor:pointer;color:#fff}
   <div class="wrap">
     <div class="season-head">
       <div>
-        <h2>Unterwegs zur WM 2027</h2>
-        <p class="lead">Höhepunkt ist die WM in Ungarn, mein Ziel: dort um die Topplatzierungen laufen. Im Herbst folgt mit der Sprint-EM in Thun ein Heimanlass.</p>
+        <h2 data-en="On the road to WOC 2027">Unterwegs zur WM 2027</h2>
+        <p class="lead" data-en="The highlight is the World Championships in Hungary, and my goal is to compete for the top places there. In autumn, the Sprint European Championships in Thun follow as a home event.">Höhepunkt ist die WM in Ungarn, mein Ziel: dort um die Topplatzierungen laufen. Im Herbst folgt mit der Sprint-EM in Thun ein Heimanlass.</p>
       </div>
       <div>
       <div class="countdown" id="countdown">
-        <div class="cd-label">Bis zum Start der WM in Ungarn</div>
+        <div class="cd-label" data-en="Until the start of the World Championships in Hungary">Bis zum Start der WM in Ungarn</div>
         <div class="cd-grid">
-          <div><b id="cdD">–</b><span>Tage</span></div>
-          <div><b id="cdH">–</b><span>Std</span></div>
+          <div><b id="cdD">–</b><span data-en="Days">Tage</span></div>
+          <div><b id="cdH">–</b><span data-en="Hrs">Std</span></div>
           <div><b id="cdM">–</b><span>Min</span></div>
-          <div><b id="cdS">–</b><span>Sek</span></div>
+          <div><b id="cdS">–</b><span data-en="Sec">Sek</span></div>
         </div>
       </div>
-      <div class="sel"><b>Der Weg an die WM:</b> Pro Nation und Disziplin gibt es nur drei Startplätze. Die Selektionskriterien gibt Swiss Orienteering im Januar bekannt. Voraussichtlich zählen vor allem die beiden Weltcuprunden in Schweden und Tschechien.</div>
+      <div class="sel" data-en="<b>The road to WOC:</b> Each nation has only three starting places per discipline. Swiss Orienteering will announce the selection criteria in January. The two World Cup rounds in Sweden and the Czech Republic are expected to count the most."><b>Der Weg an die WM:</b> Pro Nation und Disziplin gibt es nur drei Startplätze. Die Selektionskriterien gibt Swiss Orienteering im Januar bekannt. Voraussichtlich zählen vor allem die beiden Weltcuprunden in Schweden und Tschechien.</div>
       </div>
     </div>
-    <div class="legend"><span class="k-int">WM, EM, Weltcup, CISM</span><span class="k-sel">Ziel- und Selektionswettkämpfe</span><span class="k-nat">Schweizer Meisterschaften</span></div>
-    <ul class="cal" id="cal" tabindex="0" aria-label="Wettkampfkalender 2027"></ul>
-    <p class="cal-hint" id="calHint" hidden>In der Liste scrollen für alle Wettkämpfe der Saison.</p>
+    <div class="legend"><span class="k-int" data-en="WOC, EOC, World Cup, CISM">WM, EM, Weltcup, CISM</span><span class="k-sel" data-en="Target and selection races">Ziel- und Selektionswettkämpfe</span><span class="k-nat" data-en="Swiss Championships">Schweizer Meisterschaften</span></div>
+    <ul class="cal" id="cal" tabindex="0" aria-label="Wettkampfkalender 2027" data-en-aria-label="Race calendar 2027"></ul>
+    <p class="cal-hint" id="calHint" hidden data-en="Scroll the list to see all races of the season.">In der Liste scrollen für alle Wettkämpfe der Saison.</p>
   </div>
 </section>
 
 <section class="partners" id="partner">
   <div class="wrap">
-    <h2>Danke für die Unterstützung</h2>
-    <p class="lead">Danke an alle, die mich auf dem Weg an die WM 2027 unterstützen.</p>
+    <h2 data-en="Thank you for your support">Danke für die Unterstützung</h2>
+    <p class="lead" data-en="Thank you to everyone who supports me on my way to WOC 2027.">Danke an alle, die mich auf dem Weg an die WM 2027 unterstützen.</p>
 
-    <div class="tier"><div class="tier-name">Kopfsponsor</div>
+    <div class="tier"><div class="tier-name" data-en="Lead sponsor">Kopfsponsor</div>
       <div class="logos xl"><a class="logo" href="https://www.sigrist-rafz.ch/" target="_blank" rel="noopener"><img src="assets/logos/sigrist.png" alt="Sigrist Rafz Holz + Bau AG"></a></div></div>
-    <div class="tier"><div class="tier-name">Hauptsponsoren</div>
+    <div class="tier"><div class="tier-name" data-en="Main sponsors">Hauptsponsoren</div>
       <div class="logos l"><a class="logo" href="https://www.kuratlejaecker.ch/" target="_blank" rel="noopener"><img src="assets/logos/kuratle-jaecker.png" alt="Kuratle & Jaecker AG"></a></div></div>
-    <div class="tier"><div class="tier-name">Partner, Ausrüster und Unterstützung</div>
+    <div class="tier"><div class="tier-name" data-en="Partners, suppliers and support">Partner, Ausrüster und Unterstützung</div>
       <div class="logos m">
         <a class="logo" href="https://giraf-gerueste.ch/" target="_blank" rel="noopener"><img src="assets/logos/giraf.png" alt="Giraf Gerüste"></a>
         <a class="logo" href="https://olplus.ch/" target="_blank" rel="noopener"><img src="assets/logos/ol-plus.png" alt="OL plus"></a>
-        <div class="logo"><img src="assets/logos/spispo.png" class="sq" alt="Spitzensport Schweizer Armee"></div>
+        <div class="logo"><img src="assets/logos/spispo.png" class="sq" alt="Spitzensport Schweizer Armee" data-en-alt="Swiss Armed Forces elite sport"></div>
       </div></div>
-    <div class="tier"><div class="tier-name">Vereine</div>
+    <div class="tier"><div class="tier-name" data-en="Clubs">Vereine</div>
       <div class="logos m">
         <a class="logo" href="https://www.olkrafzerfeld.ch/" target="_blank" rel="noopener"><img src="assets/logos/olk.png" class="sq" alt="OLK Rafzerfeld-Bülach"></a>
         <a class="logo" href="https://www.oklinne.nu/" target="_blank" rel="noopener"><img src="assets/logos/ok-linn.png" class="sq" alt="OK Linné Uppsala"></a>
@@ -550,23 +554,23 @@ footer summary{cursor:pointer;color:#fff}
 </section>
 
 <section class="cta" id="partner-werden">
-  <img src="assets/img/cta.jpg" alt="Reto Egger stempelt an einem Posten im Wald">
+  <img src="assets/img/cta.jpg" alt="Reto Egger stempelt an einem Posten im Wald" data-en-alt="Reto Egger punching a control in the forest">
   <div class="wrap">
-    <h2>Partner werden</h2>
-    <p>Orientierungslauf ist Spitzensport ohne Profigehälter. Als Partner bist du dort sichtbar, wo ich unterwegs bin, und holst den Sport zu dir: mit einem Vortrag, einem Firmen-OL oder einem gemeinsamen Training. Partnerschaften gibt es ab 100 CHF pro Jahr.</p>
-    <div class="offers"><span>Logo auf dem Nationaldress</span><span>Vortrag</span><span>Firmen-OL</span><span>Lauftraining</span><span>Jahresbericht</span></div>
-    <a class="btn btn-primary" href="mailto:kontakt@retoegger.ch?subject=Partnerschaft%20mit%20Reto%20Egger">Sponsorendossier anfragen / Kontakt aufnehmen</a>
+    <h2 data-en="Become a partner">Partner werden</h2>
+    <p data-en="Orienteering is elite sport without professional salaries. As a partner, you are visible wherever I race, and you bring the sport to you: with a talk, a company orienteering event or a joint training session. Partnerships start at CHF 100 per year.">Orientierungslauf ist Spitzensport ohne Profigehälter. Als Partner bist du dort sichtbar, wo ich unterwegs bin, und holst den Sport zu dir: mit einem Vortrag, einem Firmen-OL oder einem gemeinsamen Training. Partnerschaften gibt es ab 100 CHF pro Jahr.</p>
+    <div class="offers"><span data-en="Logo on the national team kit">Logo auf dem Nationaldress</span><span data-en="Talk">Vortrag</span><span data-en="Company orienteering">Firmen-OL</span><span data-en="Running session">Lauftraining</span><span data-en="Annual report">Jahresbericht</span></div>
+    <a class="btn btn-primary" href="mailto:kontakt@retoegger.ch?subject=Partnerschaft%20mit%20Reto%20Egger" data-en-href="mailto:kontakt@retoegger.ch?subject=Partnership%20with%20Reto%20Egger" data-en="Request the sponsorship dossier / get in touch">Sponsorendossier anfragen / Kontakt aufnehmen</a>
   </div>
 </section>
 
 <section class="contact" id="kontakt">
   <div class="wrap">
     <div>
-      <h2>Gemeinsam an die WM 2027</h2>
-      <p class="lead">Ob Partnerschaft, Vortrag, Firmen-OL oder Medienanfrage: Ich freue mich auf deine Nachricht.</p>
+      <h2 data-en="Together to WOC 2027">Gemeinsam an die WM 2027</h2>
+      <p class="lead" data-en="Whether it is a partnership, a talk, company orienteering or a media request: I look forward to hearing from you.">Ob Partnerschaft, Vortrag, Firmen-OL oder Medienanfrage: Ich freue mich auf deine Nachricht.</p>
     </div>
     <ul class="contact-list">
-      <li><span>E-Mail</span><a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a></li>
+      <li><span data-en="Email">E-Mail</span><a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a></li>
       <li><span>Instagram</span><a href="https://www.instagram.com/retoegger/">@retoegger</a></li>
       <li><span>Strava</span><a href="https://www.strava.com/athletes/retoegger">strava.com/athletes/retoegger</a></li>
     </ul>
@@ -577,29 +581,29 @@ footer summary{cursor:pointer;color:#fff}
   <div class="wrap">
     <div>
       © <span id="yr">2026</span> Reto Egger · Rafz
-      <details><summary>Impressum, Datenschutz und Bildnachweis</summary>
+      <details><summary data-en="Legal notice, privacy and photo credits">Impressum, Datenschutz und Bildnachweis</summary>
         <div class="legal">
-          <h5>Impressum</h5>
-          <p>Verantwortlich für den Inhalt:<br>Reto Egger, Rafz (Schweiz)<br>E-Mail: <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a></p>
-          <h5>Haftung</h5>
-          <p>Die Inhalte dieser Webseite werden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehme ich jedoch keine Gewähr. Für die Inhalte verlinkter Webseiten sind ausschliesslich deren Betreiber verantwortlich.</p>
-          <h5>Urheberrecht</h5>
-          <p>Die Texte auf dieser Webseite stammen von Reto Egger. Die Rechte an den Fotos liegen bei den jeweiligen Fotografinnen und Fotografen (siehe Bildnachweis), die Logos gehören den jeweiligen Partnern. Eine Verwendung ist nur mit vorgängiger Zustimmung erlaubt.</p>
-          <h5>Datenschutz</h5>
-          <p>Diese Webseite setzt keine Cookies und keine Analyse-Tools ein. Sie wird bei GitHub Pages (GitHub Inc., USA) gehostet. Beim Aufruf speichert der Hosting-Anbieter technisch notwendige Zugriffsdaten wie IP-Adresse und Zeitpunkt in Server-Logs. Wenn du mir eine E-Mail schreibst, verwende ich deine Angaben nur zur Beantwortung deiner Anfrage. Fragen zum Datenschutz beantworte ich gerne unter <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a>.</p>
-          <h5>Bildnachweis</h5>
-          <p>Titelbild: Donatas Lazauskas<br>Porträt: Rémy Steinegger<br>Partner werden: Eszter Kocsik<br>News: <span id="newsCredits"></span></p>
+          <h5 data-en="Legal notice">Impressum</h5>
+          <p data-en='Responsible for the content:<br>Reto Egger, Rafz (Switzerland)<br>Email: <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a>'>Verantwortlich für den Inhalt:<br>Reto Egger, Rafz (Schweiz)<br>E-Mail: <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a></p>
+          <h5 data-en="Liability">Haftung</h5>
+          <p data-en="The content of this website is created with care. However, I accept no liability for its accuracy, completeness or timeliness. The operators of linked websites are solely responsible for their content.">Die Inhalte dieser Webseite werden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehme ich jedoch keine Gewähr. Für die Inhalte verlinkter Webseiten sind ausschliesslich deren Betreiber verantwortlich.</p>
+          <h5 data-en="Copyright">Urheberrecht</h5>
+          <p data-en="The texts on this website are by Reto Egger. The rights to the photos belong to the respective photographers (see photo credits), and the logos belong to the respective partners. Any use requires prior permission.">Die Texte auf dieser Webseite stammen von Reto Egger. Die Rechte an den Fotos liegen bei den jeweiligen Fotografinnen und Fotografen (siehe Bildnachweis), die Logos gehören den jeweiligen Partnern. Eine Verwendung ist nur mit vorgängiger Zustimmung erlaubt.</p>
+          <h5 data-en="Privacy">Datenschutz</h5>
+          <p data-en='This website uses no cookies and no analytics tools. It is hosted on GitHub Pages (GitHub Inc., USA). When you visit it, the hosting provider stores technically necessary access data such as IP address and time in server logs. If you send me an email, I only use your details to answer your request. I am happy to answer questions about privacy at <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a>.'>Diese Webseite setzt keine Cookies und keine Analyse-Tools ein. Sie wird bei GitHub Pages (GitHub Inc., USA) gehostet. Beim Aufruf speichert der Hosting-Anbieter technisch notwendige Zugriffsdaten wie IP-Adresse und Zeitpunkt in Server-Logs. Wenn du mir eine E-Mail schreibst, verwende ich deine Angaben nur zur Beantwortung deiner Anfrage. Fragen zum Datenschutz beantworte ich gerne unter <a href="mailto:kontakt@retoegger.ch">kontakt@retoegger.ch</a>.</p>
+          <h5 data-en="Photo credits">Bildnachweis</h5>
+          <p data-en='Cover photo: Donatas Lazauskas<br>Portrait: Rémy Steinegger<br>Become a partner: Eszter Kocsik<br>News: <span id="newsCredits"></span>'>Titelbild: Donatas Lazauskas<br>Porträt: Rémy Steinegger<br>Partner werden: Eszter Kocsik<br>News: <span id="newsCredits"></span></p>
         </div>
       </details>
     </div>
-    <div><a href="#home">Nach oben ↑</a></div>
+    <div><a href="#home" data-en="Back to top ↑">Nach oben ↑</a></div>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Karte vergrössert"><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Karte vergrössert" data-en-aria-label="Enlarged map"><img id="lbImg" alt=""><p id="lbCap"></p></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true">
   <div class="article">
-    <button class="close" id="closeModal" aria-label="Schliessen">×</button>
+    <button class="close" id="closeModal" aria-label="Schliessen" data-en-aria-label="Close">×</button>
     <img id="mImg" src="" alt="">
     <div class="inner"><div class="date" id="mDate"></div><h3 id="mTitle"></h3><div id="mText"></div><p class="credit" id="mCredit"></p></div>
   </div>
@@ -612,7 +616,9 @@ footer summary{cursor:pointer;color:#fff}
    automatisch aus dem Ordner «inhalte» erstellt (News, Kalender, Resultate). */
 let NEWS=[], EVENTS=[], RESULTS={}, WOC_START=null;
 
-const fmt = d => new Date(d+"T12:00:00").toLocaleDateString("de-CH",{day:"numeric",month:"long",year:"numeric"});
+/* Sprache: die englische Seite (/en/) wird beim Veröffentlichen aus dieser Datei erstellt */
+const EN=document.documentElement.lang==="en", T=(de,en)=>EN?en:de;
+const fmt = d => new Date(d+"T12:00:00").toLocaleDateString(T("de-CH","en-GB"),{day:"numeric",month:"long",year:"numeric"});
 const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function renderNews(all){
@@ -627,7 +633,7 @@ function renderNews(all){
 function openNews(i){
   const n=NEWS[i];
   mImg.src=n.img; mDate.textContent=fmt(n.date); mTitle.textContent=n.title;
-  mText.innerHTML=n.text.map(p=>`<p>${esc(p)}</p>`).join(""); document.getElementById("mCredit").textContent=n.credit?`Foto: ${n.credit}`:"";
+  mText.innerHTML=n.text.map(p=>`<p>${esc(p)}</p>`).join(""); document.getElementById("mCredit").textContent=n.credit?`${T("Foto","Photo")}: ${n.credit}`:"";
   modal.classList.add("open"); document.body.style.overflow="hidden";
 }
 function closeNews(){ modal.classList.remove("open"); document.body.style.overflow=""; }
@@ -642,7 +648,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeNews(); clos
 const backTo=el=>{ if(el.getBoundingClientRect().top<70) el.scrollIntoView({block:"start"}); };
 let newsOpen=false;
 allNews.addEventListener("click",e=>{ e.preventDefault(); newsOpen=!newsOpen; renderNews(newsOpen);
-  allNews.textContent=newsOpen?"Weniger anzeigen":"Alle News"; if(!newsOpen) backTo(document.getElementById("news")); });
+  allNews.textContent=newsOpen?T("Weniger anzeigen","Show less"):T("Alle News","All news"); if(!newsOpen) backTo(document.getElementById("news")); });
 
 function renderEvents(){
   const today=new Date().toISOString().slice(0,10);
@@ -650,7 +656,7 @@ function renderEvents(){
   document.getElementById("cal").innerHTML=EVENTS.map(e=>{
     const past=e.to<today, isNext=e===next;
     const cls=[e.type,past?"past":"",isNext?"next":"",e.woc?"woc":""].join(" ");
-    const st=past?"Vorbei":isNext?"Als Nächstes":e.woc?"Saisonhöhepunkt":"";
+    const st=past?T("Vorbei","Past"):isNext?T("Als Nächstes","Next"):e.woc?T("Saisonhöhepunkt","Season highlight"):"";
     return `<li class="${cls}"><div class="d">${esc(e.d)}</div><div class="n">${esc(e.name)}${e.info?`<small>${esc(e.info)}</small>`:""}</div>${st?`<span class="st">${st}</span>`:"<span></span>"}</li>`;
   }).join("");
   sizeCal(true);
@@ -674,15 +680,15 @@ function renderYear(y){
   document.querySelectorAll("#yearTabs .tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.y==y));
   const rkn=x=>parseInt(x)||999, top=new Set([...r.intl.keys()].sort((a,b)=>rkn(r.intl[a][2])-rkn(r.intl[b][2])||a-b).slice(0,3));
   const extra=r.intl.length>3;
-  const intl=r.intl.length?`<ul class="intl" id="intlList">${r.intl.map(([ev,d,rk],i)=>`<li${top.has(i)?"":' class="xtra" hidden'}><div>${esc(ev)}<small>${esc(d)}</small></div><div class="rk">${esc(rk)}</div></li>`).join("")}</ul>${extra?`<button class="show-all" id="showAll" aria-expanded="false">Alle internationalen Resultate einblenden (${r.intl.length})</button>`:""}`:`<p class="empty">${esc(r.note||"Keine internationalen Einsätze.")}</p>`;
+  const intl=r.intl.length?`<ul class="intl" id="intlList">${r.intl.map(([ev,d,rk],i)=>`<li${top.has(i)?"":' class="xtra" hidden'}><div>${esc(ev)}<small>${esc(d)}</small></div><div class="rk">${esc(rk)}</div></li>`).join("")}</ul>${extra?`<button class="show-all" id="showAll" aria-expanded="false">${T("Alle internationalen Resultate einblenden","Show all international results")} (${r.intl.length})</button>`:""}`:`<p class="empty">${esc(r.note||T("Keine internationalen Einsätze.","No international races."))}</p>`;
   const note=r.intl.length&&r.note?`<p class="heat-note">${esc(r.note)}</p>`:"";
   const sm=Object.entries(r.sm).map(([k,v])=>`<div class="${parseInt(v)<=3?"pod":""}"><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
-  document.getElementById("yearPanel").innerHTML=`<div><h4>International</h4>${intl}${note}</div><div><h4>Schweizer Meisterschaften</h4><div class="sm">${sm}</div>${r.junior?'<p class="heat-note">Einzelresultate in der Nachwuchskategorie.</p>':""}</div>`;
+  document.getElementById("yearPanel").innerHTML=`<div><h4>International</h4>${intl}${note}</div><div><h4>${T("Schweizer Meisterschaften","Swiss Championships")}</h4><div class="sm">${sm}</div>${r.junior?`<p class="heat-note">${T("Einzelresultate in der Nachwuchskategorie.","Individual results in the junior category.")}</p>`:""}</div>`;
 }
 document.addEventListener("click",e=>{ const b=e.target.closest("#showAll"); if(!b) return;
   const open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open);
   document.querySelectorAll("#intlList .xtra").forEach(li=>li.hidden=!open);
-  b.textContent=open?"Weniger anzeigen":`Alle internationalen Resultate einblenden (${document.querySelectorAll("#intlList li").length})`;
+  b.textContent=open?T("Weniger anzeigen","Show less"):`${T("Alle internationalen Resultate einblenden","Show all international results")} (${document.querySelectorAll("#intlList li").length})`;
   if(!open) backTo(document.getElementById("resultate")); });
 function renderYears(){
   const ys=Object.keys(RESULTS).sort((a,b)=>b-a);
@@ -692,7 +698,7 @@ function renderYears(){
 }
 function tick(){
   let ms=WOC_START-new Date();
-  if(ms<=0){ document.getElementById("countdown").querySelector(".cd-grid").innerHTML="<div><b>Los geht's!</b></div>"; return; }
+  if(ms<=0){ document.getElementById("countdown").querySelector(".cd-grid").innerHTML=`<div><b>${T("Los geht’s!","Let’s go!")}</b></div>`; return; }
   const d=Math.floor(ms/864e5); ms-=d*864e5; const h=Math.floor(ms/36e5); ms-=h*36e5; const m=Math.floor(ms/6e4); const s=Math.floor((ms-m*6e4)/1e3);
   cdD.textContent=d; cdH.textContent=String(h).padStart(2,"0"); cdM.textContent=String(m).padStart(2,"0"); cdS.textContent=String(s).padStart(2,"0");
 }
